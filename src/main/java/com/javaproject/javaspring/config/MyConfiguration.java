@@ -6,6 +6,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+/**
+ * <p> This is a configuration class that is used to configure CORS for communication between two different addresses </p>
+ * @return WebMvcConfigurer to configure CORS origins, methods and headers
+ */
 public class MyConfiguration {
     
    @Bean

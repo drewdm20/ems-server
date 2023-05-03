@@ -5,22 +5,29 @@ services:
     platform: linux/amd64
     image: drewm20/spring_app:1.0.0
     build: .
+    expose:
+      - 8080
     ports:
       - 8080:8080
     env_file:
       - app.env
     depends_on:
       - database
+    restart: unless-stopped
+
 
   database:
     container_name: ems_database
     image: "postgres:15.2-bullseye"
+    expose:
+      - 5432
     ports:
       - 5432:5432
     env_file:
       - database.env
     volumes:
       - database-data:/var/lib/postgresql/data
+    restart: unless-stopped
 
 volumes:
   database-data:

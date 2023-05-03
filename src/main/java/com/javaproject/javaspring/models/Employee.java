@@ -6,11 +6,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employee")
-@NoArgsConstructor
+/**
+ * <p> This is a model class that is used to create an employee object </p>
+ */
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,12 @@ public class Employee {
     @Column(name = "salary")
     public int salary;
 
+    // Default constructor
+    public Employee() {
+        super();
+    }
+
+    // Parameterized constructor
     public Employee(int empId, String empName, String empLastName, String cellNumber, String email, String role, int salary) {
         this.empId = empId;
         this.empName = empName;
@@ -38,6 +45,7 @@ public class Employee {
         this.salary = salary;
     }
 
+    // Getters and setters
     public int getEmpId() {
         return empId;
     }
